@@ -1,38 +1,85 @@
-# NuitDeLinfo
+# One Body, One Ocean
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+One Body, One Ocean is an educational Next.js experience that ties the health of the human body to the ocean through interactive storytelling and mini-games. The landing page invites visitors to explore organs on an illustrated body, then discover how each organ mirrors a vital marine process, challenge themselves with a knowledge quiz, and complete playful challenges highlighting marine preservation.
 
-## Getting Started
+## ✨ Features
 
-First, run the development server:
+- **Interactive human body navigation** – Clickable icons reveal contextual modals that compare organs to ocean systems and offer actionable tips for protecting both. 【F:src/components/Navbar.tsx†L1-L169】
+- **Educational quiz** – A multi-question quiz validates each answer in real time, tracking correct and incorrect responses with feedback and progression controls. 【F:src/app/survey/page.tsx†L1-L154】【F:src/app/data/questions.json†L1-L120】
+- **Gamified captcha** – A custom “prove you’re not a robot” flappy-fish mini-game challenges players to survive before entering the Cookie Clicker experience. 【F:src/app/captcha-game/page.tsx†L1-L168】
+- **Cookie Clicker remix** – A playful resource management mini-game with upgrades, auto-clickers, and dynamic behaviors that reacts to how you interact with the fish. 【F:src/app/CookieClicker/page.js†L1-L200】
+- **Credits gallery** – A dedicated page acknowledging project contributors and partners. 【F:src/app/credits/page.tsx†L1-L200】
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🗂️ Project structure
+
+```text
+one-body-one-ocean/
+├── public/                 # Static assets (images, icons)
+├── src/
+│   ├── app/
+│   │   ├── CookieClicker/  # Cookie clicker mini-game and helpers
+│   │   ├── captcha-game/   # Flappy-fish captcha game
+│   │   ├── credits/        # Credits page
+│   │   ├── data/           # Quiz question bank
+│   │   ├── quiz/           # Quiz wrapper
+│   │   ├── survey/         # Quiz engine and answer component
+│   │   ├── page.tsx        # Landing page
+│   │   └── layout.tsx      # Root layout
+│   └── components/         # Reusable UI components (modals, scenes)
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+2. **Run the development server**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   The app will be available at [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Build for production**
 
-## Deploy on Vercel
+   ```bash
+   npm run build
+   npm start
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Lint the project**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run lint
+   ```
+
+5. **Process Tailwind CSS manually (optional)**
+
+   ```bash
+   npm run build:css
+   # or watch changes
+   npm run watch:css
+   ```
+
+## 🛠️ Tech stack
+
+- [Next.js 15](https://nextjs.org/) with the App Router. 【F:package.json†L1-L28】
+- [React 18](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/) for styling. 【F:package.json†L1-L28】
+- [Chart.js](https://www.chartjs.org/) via `react-chartjs-2` for data visualization components. 【F:package.json†L1-L28】
+
+## 🤝 Contributing
+
+1. Fork the repository and create a new branch.
+2. Commit your changes with clear messages.
+3. Open a pull request describing your improvements.
+
+## 📄 License
+
+This project was created for Nuit de l'Info 2024. Please contact the maintainers for usage rights.
