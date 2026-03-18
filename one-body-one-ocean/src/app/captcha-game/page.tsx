@@ -6,9 +6,10 @@ import { useRouter } from 'next/navigation';
 const CaptchaGame: React.FC = () => {
   const router = useRouter(); // Initialiser le routeur
 
-  const handleGame = () => {
+  const handleGame = React.useCallback(() => {
     router.push('/CookieClicker'); // Rediriger vers /quiz
-  };
+  }, [router]);
+
   useEffect(() => {
     const checkbox = document.getElementById('checkbox') as HTMLInputElement;
     const gameCanvas = document.getElementById('gameCanvas') as HTMLCanvasElement;
@@ -181,7 +182,7 @@ const CaptchaGame: React.FC = () => {
       startGame();
       clearInterval(timerInterval); // Réinitialise le chronomètre
     });
-  }, []);
+  }, [handleGame]);
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">

@@ -45,19 +45,19 @@ export default function FishClicker() {
 const handleClick = (event) => {
   // Utilise setFishCount pour incrémenter fishCount
   setFishCount((prevCount) => {
-      fishCount = prevCount + 1;
-      checkAdPopup(fishCount); // Passe le nouveau count à checkAdPopup
-      return fishCount; // Retourne le nouveau count
+      const newFishCount = prevCount + 1;
+      checkAdPopup(newFishCount); // Passe le nouveau count à checkAdPopup
+      return newFishCount; // Retourne le nouveau count
   });
 
   if (isClickInsideFish(event.clientX, event.clientY)) {
       increaseCookies(cookies, setCookies, clickMultiplier);
 
       setClickCount((prevCount) => {
-          clickCount = prevCount + 1;
+          const newClickCount = prevCount + 1;
 
           // Vérifiez si le compteur de clics a atteint 5
-          if (clickCount >= 5) {
+          if (newClickCount >= 5) {
               moveFishAwayFromMouse(event.clientX, event.clientY, true);
               setFishJump(true); // Indique que le poisson doit sauter
               setTimeout(() => setFishJump(false), 300); // Réinitialise après 0.3 secondes
@@ -73,7 +73,7 @@ const handleClick = (event) => {
           }, 1000);
           setClickTimeout(timeoutId);
 
-          return clickCount;
+          return newClickCount;
       });
   }
 };
@@ -86,15 +86,15 @@ const handleClickUpgrade = () => {
   if (cookies >= clickUpgradeCost) {
     setCookies(cookies - clickUpgradeCost);
     setUpgradeCount(prevCount => {
-      upgradeCount = prevCount + 1;
+      const newUpgradeCount = prevCount + 1;
 
       // Vérifiez si le poisson est mort
-      if (upgradeCount === 22) {
+      if (newUpgradeCount === 22) {
         setIsFishDead(true);
-        return upgradeCount;
+        return newUpgradeCount;
       }
 
-      return upgradeCount;
+      return newUpgradeCount;
     });
 
     // Définit le multiplicateur de clics à partir du tableau

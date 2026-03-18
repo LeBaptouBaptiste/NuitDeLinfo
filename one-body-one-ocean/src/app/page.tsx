@@ -88,22 +88,26 @@ export default function App() {
           >
             {/* Boucle pour générer plusieurs chaînes */}
             {[...Array(25)].map((_, index) => (
-              <img
+              <Image
                 key={index}
-                src="/chain.png" // Image de la chaîne
+                src="/chain.png"
                 alt="Chain"
+                width={24}
+                height={89}
                 className="absolute w-6"
                 style={{
-                  top: `-${(index + 1) * 89}px`, // Position des segments de chaîne
+                  top: `-${(index + 1) * 89}px`,
                   right: '29px',
                 }}
               />
             ))}
 
             {/* Image de l'ancre */}
-            <img
-              src="/anchor.png" // Image d'ancre
+            <Image
+              src="/anchor.png"
               alt="Anchor"
+              width={80}
+              height={80}
               className="w-20 h-20 cursor-pointer"
             />
           </div>
